@@ -15,7 +15,7 @@ div.header
 }
 #quests_number
 {
-    width: 100%;
+    width: 130%;
     height: 600px;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
