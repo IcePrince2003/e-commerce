@@ -1,17 +1,18 @@
-let right = 0, wrong = 0;
+let right = 0, wrong = 0, complete = 0;
 let correct_option = document.getElementsByClassName("correct");
 let btn_accept = document.getElementsByClassName("btn-accept")
 function grade(){
+    console.log(user_option)
     for(var i = 0; i<234; i++)
     {
-        if(user_option[i]==null)
+        if(user_option[i]==null||user_option[i]=="")
         {
             number[i].style.backgroundColor = "#DD0"
         }
         else
         {
-            user_option[i].style.backgroundColor = "#F00"
-            if(user_option[i]==correct_option[i])
+            document.getElementById(user_option[i]).style.backgroundColor = "#F00"
+            if(document.getElementById(user_option[i])==correct_option[i])
             {
                 right++;
                 number[i].style.backgroundColor = "#0D0"
@@ -30,5 +31,10 @@ function grade(){
 }
 for(var i = 0; i<btn_accept.length; i++)
 {
-    btn_accept[i].addEventListener("click", grade)
+    btn_accept[i].addEventListener("click", function()
+    {
+        complete = 1;
+        grade();
+        saveData();
+    })
 }

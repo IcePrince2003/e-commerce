@@ -1,7 +1,6 @@
 
 let number = document.getElementsByClassName("quest_number")
 let choose = new Array(234).fill(0);
-let user_option = new Array(234);
 for(var i = 0; i<answers.length; i++)
 {
     let answer = answers[i].children;
@@ -19,13 +18,15 @@ for(var i = 0; i<answers.length; i++)
 
                 this.style.backgroundColor = "#DDD"
                 let quest_val = this.id.split("_");
-                user_option[quest_val[2]-1] = this;
+                console.log(quest_val)
+                user_option[quest_val[2]-1] = this.id;
                 for(var l = 0; l<number.length; l++)
                 {
-                    if(user_option[l] != null) number[l].style.backgroundColor = "#0DF";
+                    if(user_option[l] != null && user_option[l] != "") number[l].style.backgroundColor = "#0DF";
                     else number[l].style.backgroundColor = "#FFF"
                 }
-
+                console.log(user_option)
+                saveData()
             }
         )
     }
